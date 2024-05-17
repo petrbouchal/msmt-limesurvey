@@ -4,14 +4,11 @@ library(reschola) # remotes::install_github("scholaempirica/reschola")
 
 # https://evaluace.opjak.cz/index.php/admin/remotecontrol
 
+# ls_login(api_url = "https://evaluace.opjak.cz/index.php/admin/remotecontrol")
 ls_login(api_url = "https://survey.petrbouchal.xyz/index.php/admin/remotecontrol")
-ls_login(api_url = "https://evaluace.opjak.cz/index.php/admin/remotecontrol")
 ls_surveys()
 
-debug(ls_call)
-ls_call("list_surveys")
-
-# ls_responses(285817)
+# ls_responses(285817) - SŠ dotazník na LS OP JAK
 
 resps <- ls_responses(646135, lang = "cs-informal")
 saveRDS(resps, "resps.rds")
