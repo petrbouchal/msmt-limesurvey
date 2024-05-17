@@ -1,12 +1,16 @@
 ---
+title: "`r params$respondent`"
 format: html
 editor: source
+execute: 
+  echo: false
+  warning: false
 params:
-  blah: this
+  respondent: Nějaký respondent
   id: 1
 ---
 
-# {{< meta title >}}
+# {{< meta title >}}: hlavní poznatky
 
 ```{r setup}
 library(dplyr)
@@ -20,11 +24,7 @@ library(tidyr)
 dta <- readRDS("resps.rds")
 ```
 
-# `r params$id`
-
-```{r}
-print(params$blah)
-```
+Uživatel číslo `r params$id` nám odpověděl na dotazník.
 
 ```{r}
 odpovedi <- dta |> filter(id == params$id)
